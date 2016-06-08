@@ -1,19 +1,26 @@
 package pl.taq.pierwsza.graasdasd;
 
-import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g3d.particles.influencers.DynamicsModifier;
 
-public class asdasd extends ApplicationAdapter {
+public class asdasd extends Game {
 	SpriteBatch batch;
 	Texture img;
-	
+	public final static String GAME_NAME = "Pierwsza Gra";
+	public final static int WIDTH = 480;
+	public final static int HEIGHT = 700;
+
+
+
+	private boolean paused;
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		img = new Texture("F:\\AndroidStudioProjects\\asdasd\\desktop\\src\\pl\\taq\\pierwsza\\graasdasd\\desktop\\badlogic.jpg");
 	}
 
 	@Override
@@ -23,5 +30,13 @@ public class asdasd extends ApplicationAdapter {
 		batch.begin();
 		batch.draw(img, 0, 0);
 		batch.end();
+	}
+//setery i gettery
+	public boolean isPaused() {
+		return paused;
+	}
+
+	public void setPaused(boolean paused) {
+		this.paused = paused;
 	}
 }
