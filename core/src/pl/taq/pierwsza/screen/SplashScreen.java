@@ -17,7 +17,16 @@ public class SplashScreen extends AbstractScreen {
     }
 
     private void  init(){
-        splashImg = new Texture("badlogic.jpg");
+        //TODO implement better assets loading for game
+        splashImg = new Texture("F:\\AndroidStudioProjects\\asdasd\\desktop\\src\\pl\\taq\\pierwsza\\graasdasd\\desktop\\badlogic.jpg");
     }
 
+    @Override
+    public void render(float delta) {
+        super.render(delta);
+        spriteBatch.begin();
+        spriteBatch.draw(splashImg, 0, 0);
+
+        spriteBatch.end();
+    }
 }

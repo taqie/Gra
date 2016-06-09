@@ -4,8 +4,9 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-
-import javafx.stage.Stage;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import pl.taq.pierwsza.graasdasd.asdasd;
 /**
  * Created by TaQ on 2016-06-09.
@@ -21,6 +22,9 @@ public abstract class AbstractScreen implements Screen{
     public AbstractScreen(asdasd game) {
     this.game = game;
     createCamera();
+    stage = new Stage(new StretchViewport(asdasd.WIDTH,asdasd.HEIGHT,camera));
+    spriteBatch = new SpriteBatch();
+    Gdx.input.setInputProcessor(stage);
     }
     private void createCamera(){
         camera = new OrthographicCamera();
