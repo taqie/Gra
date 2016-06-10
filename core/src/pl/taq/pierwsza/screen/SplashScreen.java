@@ -1,6 +1,7 @@
 package pl.taq.pierwsza.screen;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g3d.Environment;
 
 import pl.taq.pierwsza.graasdasd.asdasd;
 
@@ -18,7 +19,8 @@ public class SplashScreen extends AbstractScreen {
 
     private void  init(){
         //TODO implement better assets loading for game
-        splashImg = new Texture("F:\\AndroidStudioProjects\\asdasd\\desktop\\src\\pl\\taq\\pierwsza\\graasdasd\\desktop\\badlogic.jpg");
+        splashImg = new Texture("badlogic.png");
+
     }
 
     @Override
