@@ -3,10 +3,6 @@ package pl.taq.pierwsza.graasdasd;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g3d.particles.influencers.DynamicsModifier;
 
 import pl.taq.pierwsza.screen.SplashScreen;
 
@@ -34,12 +30,21 @@ public class asdasd extends Game {
 	private void loadScore(){
 		points = prefs.getInteger(GAME_PREFS_SCORE);
 	}
+	public void resetGameScore(){
+		points =0;
+		updateSaveScoreInPrefs();
+	}
 	public  void addPoint(){
 		points++;
+		updateSaveScoreInPrefs();
+	}
+
+	private void updateSaveScoreInPrefs() {
 		prefs.putInteger(GAME_PREFS_SCORE,points);
 		prefs.flush();
 	}
-//setery i gettery
+
+	//setery i gettery
 	public boolean isPaused() {
 		return paused;
 	}
