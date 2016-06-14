@@ -28,17 +28,20 @@ public class Player extends Image{
     }
 
     public void reactOnClick(){
-        int krokruchu = MathUtils.random(-100,100);
-
+        int xMove = MathUtils.random(-100,100);
+        int yMove = 30;
+        float timeMoveandGrow =0.3f;
+        float timeRotate = 0.5f;
         Action moveAction = Actions.sequence(
-                Actions.moveBy(krokruchu,30,0.3f, Interpolation.circleOut),
-                Actions.moveBy(-krokruchu,-30,0.3f,Interpolation.bounceOut)
+                Actions.moveBy(xMove,yMove,timeMoveandGrow, Interpolation.circleOut),
+                Actions.moveBy(-xMove,-yMove,timeMoveandGrow,Interpolation.bounceOut)
         );
-        int zmianaroz = MathUtils.random(-100,100);
-        int obrot = MathUtils.random(-360,360);
+        int xChangeSize = MathUtils.random(-100,100);
+        int yChangeSize = 10;
+        int rotation = MathUtils.random(-360,360);
         Action gorwAction = Actions.sequence(
-                Actions.sizeBy(zmianaroz,10,0.3f,Interpolation.elasticOut),
-                Actions.sizeBy(-zmianaroz,-10,0.3f,Interpolation.elasticIn)
+                Actions.sizeBy(xChangeSize,yChangeSize,timeMoveandGrow,Interpolation.elasticOut),
+                Actions.sizeBy(-xChangeSize,-yChangeSize,timeMoveandGrow,Interpolation.elasticIn)
 
                 );
 
@@ -48,8 +51,8 @@ public class Player extends Image{
         if(this.getHeight() > 180)
         {
             this.addAction(Actions.sequence(
-                    Actions.rotateBy(obrot,0.5f,Interpolation.sine),
-                    Actions.rotateBy(-obrot,0.5f,Interpolation.pow5)
+                    Actions.rotateBy(rotation,timeRotate,Interpolation.sine),
+                    Actions.rotateBy(-rotation,timeRotate,Interpolation.pow5)
             ));
         }
     }
