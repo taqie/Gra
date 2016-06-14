@@ -34,7 +34,7 @@ public class GamePlayScreeen extends AbstractScreen {
         labelStyle.font = new BitmapFont();
     }
     private void initScoreLabel(){
-        scoreLabel = new Label("testcik", labelStyle);
+        scoreLabel = new Label("",labelStyle);
         scoreLabel.setX(30);
         scoreLabel.setY(650);
         stage.addActor(scoreLabel);
@@ -74,8 +74,7 @@ public class GamePlayScreeen extends AbstractScreen {
         spriteBatch.end();
     }
     private void update(){
+        scoreLabel.setText("Score : "+game.getPoints());
         stage.act();
-
-
     }
 }
