@@ -1,6 +1,10 @@
 package pl.taq.pierwsza.entitis;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Interpolation;
+import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.scenes.scene2d.Action;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 /**
@@ -21,5 +25,32 @@ public class Player extends Image{
 
         //starting position
         this.setPosition(STARTING_X,STARTING_Y);
+    }
+
+    public void reactOnClick(){
+        int krokruchu = MathUtils.random(-100,100);
+
+        Action moveAction = Actions.sequence(
+                Actions.moveBy(krokruchu,30,0.3f, Interpolation.circleOut),
+                Actions.moveBy(-krokruchu,-30,0.3f,Interpolation.bounceOut)
+        );
+        int zmianaroz = MathUtils.random(-100,100);
+        int obrot = MathUtils.random(-360,360);
+        Action gorwAction = Actions.sequence(
+                Actions.sizeBy(zmianaroz,10,0.3f,Interpolation.elasticOut),
+                Actions.sizeBy(-zmianaroz,-10,0.3f,Interpolation.elasticIn)
+
+                );
+
+
+        this.addAction(moveAction);
+        this.addAction(gorwAction);
+        if(this.getHeight() > 180)
+        {
+            this.addAction(Actions.sequence(
+                    Actions.rotateBy(obrot,0.5f,Interpolation.sine),
+                    Actions.rotateBy(-obrot,0.5f,Interpolation.pow5)
+            ));
+        }
     }
 }
