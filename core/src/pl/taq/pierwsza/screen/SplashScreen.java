@@ -28,7 +28,6 @@ public class SplashScreen extends AbstractScreen {
         super.render(delta);
         spriteBatch.begin();
         spriteBatch.draw(splashImg, 0, 0);
-
         spriteBatch.end();
     }
 }
