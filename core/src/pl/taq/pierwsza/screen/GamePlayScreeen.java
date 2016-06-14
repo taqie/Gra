@@ -12,9 +12,10 @@ public class GamePlayScreeen extends AbstractScreen {
 
     public GamePlayScreeen(asdasd game) {
         super(game);
-        init();
+
     }
-    private void init(){
+    @Override
+    protected void init(){
         initPlayer();
     }
     private void initPlayer(){

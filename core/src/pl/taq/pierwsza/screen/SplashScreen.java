@@ -15,7 +15,6 @@ public class SplashScreen extends AbstractScreen {
 
     public SplashScreen(final asdasd game) {
         super(game);
-        init();
         Timer.schedule(new Timer.Task() {
             @Override
             public void run() {
@@ -24,8 +23,8 @@ public class SplashScreen extends AbstractScreen {
         },1);
 
     }
-
-    private void  init(){
+    @Override
+    protected void  init(){
         //TODO implement better assets loading for game
         splashImg = new Texture("badlogic.png");
 
