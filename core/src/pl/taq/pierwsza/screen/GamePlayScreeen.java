@@ -10,6 +10,7 @@ import pl.taq.pierwsza.entitis.Player;
 import pl.taq.pierwsza.graasdasd.asdasd;
 import pl.taq.pierwsza.ui.ClickCallBack;
 import pl.taq.pierwsza.ui.PlayerButton;
+import pl.taq.pierwsza.ui.ResetScoreButton;
 
 /**
  * Created by root on 14.06.16.
@@ -20,7 +21,7 @@ public class GamePlayScreeen extends AbstractScreen {
     private PlayerButton playerButton;
     private Label scoreLabel;
     private Label.LabelStyle labelStyle;
-    private Button resetScoreButton;
+    private ResetScoreButton resetScoreButton;
     public GamePlayScreeen(asdasd game) {
         super(game);
 
@@ -35,20 +36,13 @@ public class GamePlayScreeen extends AbstractScreen {
     }
     private void initResetScoreButton()
     {
-        resetScoreButton = new Button(new Button.ButtonStyle());
-        resetScoreButton.setX(330);
-        resetScoreButton.setY(560);
-        resetScoreButton.setWidth(100);
-        resetScoreButton.setHeight(100);
-        resetScoreButton.setDebug(true);
-        stage.addActor(resetScoreButton);
-        resetScoreButton.addListener(new ClickListener(){
+        resetScoreButton = new ResetScoreButton(new ClickCallBack() {
             @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+            public void onclick() {
                 game.resetGameScore();
-                return super.touchDown(event, x, y, pointer, button);
             }
         });
+        stage.addActor(resetScoreButton);
     }
     private void initStyleLabel(){
         labelStyle = new Label.LabelStyle();
