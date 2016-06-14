@@ -27,6 +27,7 @@ public class GamePlayScreeen extends AbstractScreen {
     public void render(float delta) {
         super.render(delta);
         update();
+
         spriteBatch.begin();
         stage.draw();
         spriteBatch.end();
