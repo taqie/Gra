@@ -2,6 +2,7 @@ package pl.taq.pierwsza.screen;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g3d.Environment;
+import com.badlogic.gdx.utils.Timer;
 
 import pl.taq.pierwsza.graasdasd.asdasd;
 
@@ -12,9 +13,15 @@ public class SplashScreen extends AbstractScreen {
 
     private Texture splashImg;
 
-    public SplashScreen(asdasd game) {
+    public SplashScreen(final asdasd game) {
         super(game);
         init();
+        Timer.schedule(new Timer.Task() {
+            @Override
+            public void run() {
+                game.setScreen(new GamePlayScreeen(game));
+            }
+        },1);
     }
 
     private void  init(){
