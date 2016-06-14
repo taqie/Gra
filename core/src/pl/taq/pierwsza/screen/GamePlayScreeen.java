@@ -8,6 +8,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 import pl.taq.pierwsza.entitis.Player;
 import pl.taq.pierwsza.graasdasd.asdasd;
+import pl.taq.pierwsza.ui.ClickCallBack;
+import pl.taq.pierwsza.ui.PlayerButton;
 
 /**
  * Created by root on 14.06.16.
@@ -15,7 +17,7 @@ import pl.taq.pierwsza.graasdasd.asdasd;
 public class GamePlayScreeen extends AbstractScreen {
 
     private Player player;
-    private Button playerButton;
+    private PlayerButton playerButton;
     private Label scoreLabel;
     private Label.LabelStyle labelStyle;
     private Button resetScoreButton;
@@ -65,24 +67,15 @@ public class GamePlayScreeen extends AbstractScreen {
 
     }
     private  void initPlayerButton(){
-        playerButton = new Button(new Button.ButtonStyle());
-        playerButton.setWidth(460);
-        playerButton.setHeight(360);
-        playerButton.setY(170);
-        playerButton.setX(10);
-        playerButton.setDebug(true);
-
-        stage.addActor(playerButton);
-        playerButton.addListener(new ClickListener(){
-
+        playerButton = new PlayerButton(new ClickCallBack() {
             @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-
+            public void onclick() {
                 player.reactOnClick();
                 game.addPoint();
-                return super.touchDown(event, x, y, pointer, button);
             }
         });
+        stage.addActor(playerButton);
+
     }
     @Override
     public void render(float delta) {
