@@ -11,6 +11,7 @@ import pl.taq.pierwsza.graasdasd.asdasd;
 import pl.taq.pierwsza.ui.ClickCallBack;
 import pl.taq.pierwsza.ui.PlayerButton;
 import pl.taq.pierwsza.ui.ResetScoreButton;
+import pl.taq.pierwsza.ui.ScoreLabel;
 
 /**
  * Created by root on 14.06.16.
@@ -19,8 +20,7 @@ public class GamePlayScreeen extends AbstractScreen {
 
     private Player player;
     private PlayerButton playerButton;
-    private Label scoreLabel;
-    private Label.LabelStyle labelStyle;
+    private ScoreLabel scoreLabel;
     private ResetScoreButton resetScoreButton;
     public GamePlayScreeen(asdasd game) {
         super(game);
@@ -30,7 +30,6 @@ public class GamePlayScreeen extends AbstractScreen {
     protected void init(){
         initPlayer();
         initPlayerButton();
-        initStyleLabel();
         initScoreLabel();
         initResetScoreButton();
     }
@@ -44,14 +43,9 @@ public class GamePlayScreeen extends AbstractScreen {
         });
         stage.addActor(resetScoreButton);
     }
-    private void initStyleLabel(){
-        labelStyle = new Label.LabelStyle();
-        labelStyle.font = new BitmapFont();
-    }
+
     private void initScoreLabel(){
-        scoreLabel = new Label("",labelStyle);
-        scoreLabel.setX(30);
-        scoreLabel.setY(650);
+        scoreLabel = new ScoreLabel();
         stage.addActor(scoreLabel);
     }
 

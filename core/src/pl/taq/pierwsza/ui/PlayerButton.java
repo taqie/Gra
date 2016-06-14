@@ -20,7 +20,7 @@ public class PlayerButton extends Button {
         this.setHeight(360);
         this.setY(170);
         this.setX(10);
-        this.setDebug(true);
+        this.setDebug(false);
         this.addListener(new ClickListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
