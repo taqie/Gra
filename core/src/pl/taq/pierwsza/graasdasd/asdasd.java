@@ -16,13 +16,17 @@ public class asdasd extends Game {
 
 
 
+	private int points;
+
 	private boolean paused;
 	@Override
 	public void create () {
 		this.setScreen(new SplashScreen(this));
 	}
 
-
+	public  void addPoint(){
+		points++;
+	}
 //setery i gettery
 	public boolean isPaused() {
 		return paused;
@@ -31,4 +35,10 @@ public class asdasd extends Game {
 	public void setPaused(boolean paused) {
 		this.paused = paused;
 	}
+
+	public int getPoints() {
+		return points;
+	}
+
+
 }
