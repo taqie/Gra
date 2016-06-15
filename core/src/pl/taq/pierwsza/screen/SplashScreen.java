@@ -18,7 +18,7 @@ public class SplashScreen extends AbstractScreen {
         Timer.schedule(new Timer.Task() {
             @Override
             public void run() {
-                game.setScreen(new GamePlayScreeen(game));
+                game.setScreen(new MenuScreen(game));
             }
         },1);
 
@@ -26,7 +26,7 @@ public class SplashScreen extends AbstractScreen {
     @Override
     protected void  init(){
         //TODO implement better assets loading for game
-        splashImg = new Texture("badlogic.png");
+        splashImg = new Texture("splesh.png");
 
     }
 
