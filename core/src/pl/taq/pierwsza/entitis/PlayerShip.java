@@ -17,7 +17,12 @@ public class PlayerShip extends Image {
     private final static int WIDTH = 150;
     private final static int HEIGHT = 150;
     private final static int STARTING_X = 170;
-    private final static int STARTING_Y = 50;
+
+    public static int getStartingY() {
+        return STARTING_Y;
+    }
+
+    private final static int STARTING_Y = 0;
 
     @Override
     public float getX() {

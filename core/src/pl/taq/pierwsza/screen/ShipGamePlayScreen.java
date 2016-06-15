@@ -1,10 +1,16 @@
 package pl.taq.pierwsza.screen;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.scenes.scene2d.ui.List;
 import com.badlogic.gdx.utils.Timer;
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 
+import pl.taq.pierwsza.entitis.Fire;
+import pl.taq.pierwsza.entitis.Player;
 import pl.taq.pierwsza.entitis.PlayerShip;
 import pl.taq.pierwsza.graasdasd.asdasd;
+import pl.taq.pierwsza.ui.ClickCallBack;
+import pl.taq.pierwsza.ui.PlayerButtonFire;
 import pl.taq.pierwsza.ui.ScoreLabel;
 
 /**
@@ -13,6 +19,8 @@ import pl.taq.pierwsza.ui.ScoreLabel;
 public class ShipGamePlayScreen extends AbstractScreen {
     private PlayerShip playerShip;
     private ScoreLabel scoreLabel;
+    private Fire fire;
+    private PlayerButtonFire playerButtonFire;
     public ShipGamePlayScreen(asdasd game) {
         super(game);
     }
@@ -22,8 +30,24 @@ public class ShipGamePlayScreen extends AbstractScreen {
     protected void init() {
         initPlayerShip();
         initScoreLabel();
+        initPLayerButtonfire();
+        initFire();
     }
 
+
+    private void initFire(){
+        fire = new Fire((playerShip.getX()+75),150);
+        stage.addActor(fire);
+    }
+    private void initPLayerButtonfire(){
+        playerButtonFire = new PlayerButtonFire(new ClickCallBack() {
+            @Override
+            public void onclick() {
+               initFire();
+            }
+        });
+        stage.addActor(playerButtonFire);
+    }
     private void initScoreLabel(){
         scoreLabel = new ScoreLabel();
         stage.addActor(scoreLabel);
@@ -31,7 +55,6 @@ public class ShipGamePlayScreen extends AbstractScreen {
     private void initPlayerShip(){
         playerShip = new PlayerShip();
         stage.addActor(playerShip);
-//        playerShip.move();
     }
 
 
@@ -48,6 +71,7 @@ public class ShipGamePlayScreen extends AbstractScreen {
     private void update(){
         scoreLabel.setText("Score : "+ Gdx.input.getAccelerometerX());
         playerShip.move(Gdx.input.getAccelerometerX());
+        fire.move();
         stage.act();
     }
 }
